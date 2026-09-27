@@ -1,33 +1,7 @@
 # JobDorked 🎯
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 > **Precision ATS Job Search & Direct Search Engine Dorking Platform**  
 > Clean, modern, ad-free tool to search 40+ Applicant Tracking Systems (Greenhouse, Lever, Ashby, Workday, etc.) directly with tailored Tech Stack, Location, and Recency filters.
-
----
-
-## 🚀 One-Click Deploy to Vercel
-
-You can deploy JobDorked instantly to Vercel with zero configuration:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
-
-### Manual Vercel Deployment via CLI:
-
-```bash
-# 1. Install Vercel CLI
-npm i -g vercel
-
-# 2. Deploy to production
-vercel --prod
-```
-
-The included `vercel.json` and `package.json` will automatically configure:
-- Clean URL routing (`/` without `.html`)
-- Immutable asset caching for `/assets/*`
-- Standard security headers (HSTS, X-Content-Type-Options, Frame-Options, XSS Protection)
 
 ---
 
@@ -83,4 +57,4 @@ Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## 📄 License
 
-MIT License. Free and open source for all job seekers!
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) MIT License. Free and open source for all job seekers! 
