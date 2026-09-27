@@ -1191,61 +1191,315 @@ body {
 }
 
 /* ==========================================================================
-   Responsive Adaptations
+   App Footer
    ========================================================================== */
-@media (max-width: 1024px) {
-  .platforms-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.app-footer {
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-page);
+  padding: 2.2rem 1.5rem;
+  margin-top: auto;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  .dropdowns-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-link:hover {
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .footer-link:hover {
+  border-color: var(--border-focus);
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile)
+   ========================================================================== */
+
+/* Tablet & Smaller Desktops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 1.8rem 1.25rem 3.5rem 1.25rem;
   }
 
   .hero-section {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1.2rem;
   }
 
   .direct-callout-card {
     max-width: 100%;
     width: 100%;
   }
+
+  .title-row {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+
+  .dropdowns-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .platforms-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
-@media (max-width: 640px) {
-  .platforms-grid {
-    grid-template-columns: 1fr;
+/* Tablet Portrait & Large Mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.85rem 1.15rem;
+  }
+
+  .brand-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
   }
 
   .title-row {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .dropdowns-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .advanced-grid {
-    grid-template-columns: 1fr;
+  .search-panel-card {
+    padding: 1.35rem 1.15rem;
   }
 
   .platforms-header-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.85rem;
   }
 
   .platforms-search-box {
     width: 100%;
   }
 
+  .advanced-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Devices (max-width: 640px) */
+@media (max-width: 640px) {
+  .main-container {
+    padding: 1.2rem 1rem 3rem 1rem;
+  }
+
+  .app-header .header-container {
+    padding: 0.75rem 1rem;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-logo-img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .btn-theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn-share {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 0.86rem;
+  }
+
+  .direct-callout-card {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .callout-title {
+    font-size: 0.8rem;
+  }
+
+  .callout-desc {
+    font-size: 0.72rem;
+  }
+
+  .search-panel-card {
+    padding: 1.1rem 0.9rem;
+    border-radius: var(--radius-md);
+  }
+
+  .field-label {
+    font-size: 0.8rem;
+  }
+
+  .input-wrap input,
+  .select-wrap select {
+    height: 42px;
+    font-size: 0.86rem;
+  }
+
+  .tags-input-container {
+    min-height: 44px;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .tag-badge {
+    font-size: 0.78rem;
+    padding: 0.18rem 0.45rem;
+  }
+
+  .tags-input-container input {
+    min-width: 120px;
+    font-size: 0.84rem;
+  }
+
+  .btn-add-tech {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .popular-suggestions-row {
+    gap: 0.35rem;
+  }
+
+  .popular-label {
+    font-size: 0.72rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+  }
+
+  .popular-pill {
+    font-size: 0.72rem;
+    padding: 0.18rem 0.48rem;
+  }
+
+  .dropdowns-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
   .panel-card-footer {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 0.85rem;
+  }
+
+  .btn-advanced-toggle {
+    font-size: 0.82rem;
+    justify-content: flex-start;
   }
 
   .footer-actions-group {
-    justify-content: flex-end;
+    display: flex;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .btn-reset {
+    flex: 0 0 auto;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .btn-generate {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.84rem;
+  }
+
+  .query-strip-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .query-code-text {
+    font-size: 0.82rem;
+    white-space: normal;
+    word-break: break-all;
+    max-height: 4.5rem;
+    overflow-y: auto;
+  }
+
+  .btn-copy-query {
+    align-self: flex-end;
+    width: auto;
+    justify-content: center;
+  }
+
+  .platforms-heading {
+    font-size: 1.3rem;
+  }
+
+  .category-tabs-bar {
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-tabs-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-pill {
+    padding: 0.38rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .platforms-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .platform-card {
+    padding: 1rem;
+  }
+
+  .app-footer {
+    padding: 1.8rem 1rem;
+  }
+
+  .footer-link {
+    font-size: 0.82rem;
   }
 }
