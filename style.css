@@ -4,7 +4,7 @@
    ========================================================================== */
 
 :root {
-  /* Common typography */
+  /* Typography */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
 
@@ -139,6 +139,11 @@
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-page);
@@ -158,13 +163,15 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .main-container {
-  max-width: 1140px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
   padding: 2.2rem 1.5rem 4rem 1.5rem;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -177,15 +184,17 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  width: 100%;
 }
 
 .header-container {
-  max-width: 1140px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0.9rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .brand {
@@ -195,9 +204,9 @@ body {
 }
 
 .brand-logo-mark {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
   background-color: var(--brand-accent);
   color: var(--brand-accent-text);
   display: flex;
@@ -389,6 +398,7 @@ body {
   padding: 1.6rem;
   box-shadow: var(--shadow-panel);
   margin-bottom: 1.6rem;
+  box-sizing: border-box;
 }
 
 .panel-row {
@@ -401,13 +411,14 @@ body {
 
 .title-row {
   display: grid;
-  grid-template-columns: 1fr 240px;
+  grid-template-columns: minmax(0, 1fr) 260px;
   gap: 1.25rem;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .field-label {
@@ -438,6 +449,7 @@ body {
   border-radius: var(--radius-sm);
   color: var(--text-main);
   outline: none;
+  box-sizing: border-box;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -448,6 +460,7 @@ body {
 
 .select-wrap {
   position: relative;
+  width: 100%;
 }
 
 .select-wrap select {
@@ -475,6 +488,7 @@ body {
   background-color: var(--bg-input);
   border: 1px solid var(--border-field);
   border-radius: var(--radius-sm);
+  box-sizing: border-box;
   transition: border-color 0.15s ease;
 }
 
@@ -523,7 +537,7 @@ body {
 
 .tags-input-container input {
   flex: 1;
-  min-width: 200px;
+  min-width: 180px;
   border: none;
   background: transparent;
   font-family: var(--font-sans);
@@ -602,7 +616,7 @@ body {
 /* 4-Dropdowns Grid */
 .dropdowns-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -761,6 +775,7 @@ body {
    ========================================================================== */
 .generated-query-section {
   margin-bottom: 2.2rem;
+  width: 100%;
 }
 
 .query-strip-label {
@@ -782,6 +797,8 @@ body {
   border: 1px solid var(--query-strip-border);
   border-radius: var(--radius-md);
   padding: 0.7rem 1rem;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .query-code-text {
@@ -793,6 +810,7 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
+  min-width: 0;
 }
 
 .btn-copy-query {
@@ -820,6 +838,7 @@ body {
    ========================================================================== */
 .platforms-section {
   margin-bottom: 3rem;
+  width: 100%;
 }
 
 .platforms-header-bar {
@@ -828,6 +847,12 @@ body {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.platforms-header-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .platforms-title-row {
@@ -870,6 +895,8 @@ body {
   width: 280px;
   height: 38px;
   color: var(--text-muted);
+  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .platforms-search-box input {
@@ -894,6 +921,7 @@ body {
   margin-bottom: 1.5rem;
   overflow-x: auto;
   padding-bottom: 0.25rem;
+  width: 100%;
 }
 
 .cat-pill {
@@ -919,15 +947,19 @@ body {
   border-color: var(--cat-pill-active-bg);
 }
 
-/* 3-Column Platforms Cards Grid */
+/* 3-Column Platforms Cards Grid - minmax(0, 1fr) is essential to prevent blowout */
 .platforms-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.15rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Platform Card */
 .platform-card {
+  min-width: 0; /* CRITICAL for ellipsis */
+  overflow: hidden;
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
@@ -935,6 +967,7 @@ body {
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-card);
+  box-sizing: border-box;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -948,12 +981,14 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.85rem;
+  min-width: 0;
 }
 
 .card-logo-and-name {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .platform-logo {
@@ -969,11 +1004,16 @@ body {
   user-select: none;
 }
 
+.platform-logo .logo-letter {
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
 /* Custom Platform Brand Avatars */
 .logo-greenhouse {
   background-color: #00b259;
   color: #ffffff;
-  font-family: var(--font-sans);
 }
 
 .logo-lever {
@@ -992,7 +1032,7 @@ body {
 }
 
 .logo-rippling {
-  background-color: #1c1917;
+  background-color: #18181b;
   color: #f97316;
 }
 
@@ -1013,6 +1053,61 @@ body {
   color: #f97316;
 }
 
+.logo-smartrecruiters {
+  background-color: #e11d48;
+  color: #ffffff;
+}
+
+.logo-icims {
+  background-color: #0d9488;
+  color: #ffffff;
+}
+
+.logo-oracle {
+  background-color: #b91c1c;
+  color: #ffffff;
+}
+
+.logo-sap {
+  background-color: #0369a1;
+  color: #ffffff;
+}
+
+.logo-taleo {
+  background-color: #991b1b;
+  color: #ffffff;
+}
+
+.logo-workable {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.logo-breezy {
+  background-color: #0ea5e9;
+  color: #ffffff;
+}
+
+.logo-wellfound {
+  background-color: #ea580c;
+  color: #ffffff;
+}
+
+.logo-yc {
+  background-color: #ff6600;
+  color: #ffffff;
+}
+
+.logo-builtin {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.logo-linkedin {
+  background-color: #0a66c2;
+  color: #ffffff;
+}
+
 .logo-default {
   background-color: #334155;
   color: #ffffff;
@@ -1021,6 +1116,7 @@ body {
 .card-meta {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .platform-name {
@@ -1028,6 +1124,9 @@ body {
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .platform-badge {
@@ -1051,6 +1150,7 @@ body {
   padding: 0.25rem;
   border-radius: var(--radius-sm);
   transition: color 0.15s ease;
+  flex-shrink: 0;
 }
 
 .card-external-link:hover {
@@ -1065,6 +1165,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 .card-footer {
@@ -1087,6 +1188,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.15s ease;
+  box-sizing: border-box;
 }
 
 .btn-search-platform:hover {
@@ -1122,13 +1224,13 @@ body {
 /* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .platforms-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dropdowns-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-section {

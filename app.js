@@ -830,6 +830,53 @@ function removeTech(techName) {
   renderTechStack();
 }
 
+function getPlatformLogoHtml(platform) {
+  switch (platform.id) {
+    case "greenhouse":
+      return '<span class="logo-letter">g</span>';
+    case "lever":
+      return '<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 4h3.5v11.5H18V19H7V4z"/></svg>';
+    case "ashby":
+      return '<span class="logo-letter">A</span>';
+    case "rippling":
+      return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#f97316" stroke-width="2.6" stroke-linecap="round"><path d="M4 7.5c2.3-1.8 5.7-1.8 8 0s5.7 1.8 8 0"/><path d="M4 12c2.3-1.8 5.7-1.8 8 0s5.7 1.8 8 0"/><path d="M4 16.5c2.3-1.8 5.7-1.8 8 0s5.7 1.8 8 0"/></svg>';
+    case "dover":
+      return '<span class="logo-letter">D</span>';
+    case "workday":
+      return '<svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M3 13c3-3.5 6-5.5 9-5.5s6 2 9 5.5" stroke="#f59e0b" stroke-width="2.8" stroke-linecap="round"/><path d="M7 16l2.5-6 2.5 4.5 2.5-4.5 2.5 6" stroke="#0284c7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    case "smartrecruiters":
+      return '<span class="logo-letter">S</span>';
+    case "icims":
+      return '<span class="logo-letter" style="font-size: 1rem;">iC</span>';
+    case "oraclecloud":
+      return '<span class="logo-letter">O</span>';
+    case "successfactors":
+      return '<span class="logo-letter" style="font-size: 0.8rem;">SAP</span>';
+    case "taleo":
+      return '<span class="logo-letter">T</span>';
+    case "adp":
+      return '<span class="logo-letter" style="font-size: 0.85rem;">ADP</span>';
+    case "workable":
+      return '<span class="logo-letter">W</span>';
+    case "breezy":
+      return '<span class="logo-letter">B</span>';
+    case "recruitee":
+      return '<span class="logo-letter">R</span>';
+    case "teamtailor":
+      return '<span class="logo-letter" style="font-size: 0.9rem;">TT</span>';
+    case "wellfound":
+      return '<span class="logo-letter">W</span>';
+    case "workatastartup":
+      return '<span class="logo-letter">Y</span>';
+    case "builtin":
+      return '<span class="logo-letter">B</span>';
+    case "linkedin_dork":
+      return '<span class="logo-letter" style="font-size: 1rem; font-weight:700;">in</span>';
+    default:
+      return `<span class="logo-letter">${platform.logoLetter || platform.name.charAt(0)}</span>`;
+  }
+}
+
 function renderPlatformCards() {
   const filteredPlatforms = PLATFORMS.filter(platform => {
     if (state.activeCategory !== "all" && platform.category !== state.activeCategory) {
@@ -871,7 +918,7 @@ function renderPlatformCards() {
       <div class="card-header">
         <div class="card-logo-and-name">
           <div class="platform-logo ${platform.logoClass || 'logo-default'}">
-            ${platform.logoLetter || platform.name.charAt(0)}
+            ${getPlatformLogoHtml(platform)}
           </div>
           <div class="card-meta">
             <h3 class="platform-name">${platform.name}</h3>
@@ -944,9 +991,17 @@ function loadStateFromStorage() {
     if (cached) {
       try {
         const parsed = JSON.parse(cached);
-        if (parsed.jobTitle !== undefined) state.jobTitle = parsed.jobTitle;
+        if (parsed.jobTitle) {
+          state.jobTitle = parsed.jobTitle;
+        } else {
+          state.jobTitle = "Backend Engineer";
+        }
         if (parsed.titleMode !== undefined) state.titleMode = parsed.titleMode;
-        if (parsed.techStack !== undefined) state.techStack = parsed.techStack;
+        if (parsed.techStack && parsed.techStack.length > 0) {
+          state.techStack = parsed.techStack;
+        } else {
+          state.techStack = ["Python", "Django"];
+        }
         if (parsed.stackLogic !== undefined) state.stackLogic = parsed.stackLogic;
         if (parsed.location !== undefined) state.location = parsed.location;
         if (parsed.customLocation !== undefined) state.customLocation = parsed.customLocation;
@@ -959,6 +1014,9 @@ function loadStateFromStorage() {
       }
     }
   }
+
+  if (!state.jobTitle) state.jobTitle = "Backend Engineer";
+  if (!state.techStack || state.techStack.length === 0) state.techStack = ["Python", "Django"];
 
   // Sync inputs
   dom.jobTitleInput.value = state.jobTitle;
