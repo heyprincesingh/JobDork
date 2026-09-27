@@ -29,6 +29,7 @@
   --brand-accent: #1e3a2f;
   --brand-accent-hover: #162c24;
   --brand-accent-text: #ffffff;
+  --brand-wordmark-accent: #d97706;
 
   --hero-highlight: #1e3a2f;
   
@@ -94,6 +95,7 @@
   --brand-accent: #f59e0b;
   --brand-accent-hover: #d97706;
   --brand-accent-text: #000000;
+  --brand-wordmark-accent: #fab005;
 
   --hero-highlight: #f59e0b;
 
@@ -203,26 +205,23 @@ body {
   gap: 0.85rem;
 }
 
-.brand-logo-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background-color: var(--brand-accent);
-  color: var(--brand-accent-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.brand-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
   flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease;
+  filter: drop-shadow(0 2px 6px rgba(245, 158, 11, 0.25));
 }
 
-[data-theme="light"] .brand-logo-mark {
-  background-color: #1e3a2f;
-  color: #ffffff;
+.brand-logo-img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 3px 10px rgba(245, 158, 11, 0.45));
 }
 
-[data-theme="dark"] .brand-logo-mark {
-  background-color: #f59e0b;
-  color: #0c1017;
+.brand-title-accent {
+  color: var(--brand-wordmark-accent);
 }
 
 .brand-text {
