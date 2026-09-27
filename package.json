@@ -1,0 +1,28 @@
+{
+  "name": "jobdork",
+  "version": "1.0.0",
+  "description": "Precision ATS Job Search Engine targeting Greenhouse, Lever, Ashby, Workday, and 40+ ATS platforms.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve . -p 8080",
+    "start": "serve . -p 8080",
+    "build": "echo 'Static assets ready for deployment'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heyprincesingh/JobDork.git"
+  },
+  "keywords": [
+    "job-search",
+    "ats",
+    "greenhouse",
+    "lever",
+    "ashby",
+    "workday",
+    "dorking",
+    "developer-jobs",
+    "vercel"
+  ],
+  "author": "heyprincesingh",
+  "license": "MIT"
+}

@@ -1,14 +1,40 @@
 # JobDork 🎯
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > **Precision ATS Job Search & Direct Search Engine Dorking Platform**  
 > Clean, modern, ad-free tool to search 40+ Applicant Tracking Systems (Greenhouse, Lever, Ashby, Workday, etc.) directly with tailored Tech Stack, Location, and Recency filters.
 
 ---
 
+## 🚀 One-Click Deploy to Vercel
+
+You can deploy JobDork instantly to Vercel with zero configuration:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
+
+### Manual Vercel Deployment via CLI:
+
+```bash
+# 1. Install Vercel CLI
+npm i -g vercel
+
+# 2. Deploy to production
+vercel --prod
+```
+
+The included `vercel.json` and `package.json` will automatically configure:
+- Clean URL routing (`/` without `.html`)
+- Immutable asset caching for `/assets/*`
+- Standard security headers (HSTS, X-Content-Type-Options, Frame-Options, XSS Protection)
+
+---
+
 ## ⚡ Features
 
-- **💼 Target Job Roles**: Unquoted clean role matching with quick presets (Software Engineer, Full Stack, Frontend, Backend, DevOps, Data Engineer, Mobile, ML/AI) + optional exact phrase quotes.
-- **⚡ Tech Stack Filtering**: Multi-tag chip selector + custom framework input. Encloses skills in strict quotes with boolean operators (e.g. `"Python" AND "FastAPI"`).
+- **💼 Target Job Roles**: Flexible role matching with role style controls (Standard unquoted / Exact with `""`).
+- **⚡ Tech Stack Filtering**: Multi-tag chip selector + custom framework input. Encloses skills in strict quotes with boolean operators (`"Python" AND "Django"` or `("Python" OR "Django")`).
 - **🌍 Geographic Accuracy & Workplace Controls**:
   - Region filters: India, United States, Canada, United Kingdom, Europe, Germany, Australia, or Custom City/Country.
   - **Workplace Arrangements**:
@@ -17,33 +43,31 @@
     - *On-site / In-Office Only* — excludes remote listings (`-remote`).
     - *Worldwide Remote Only* — global remote listings.
 - **⏱️ Granular Date Recency**:
-  - `All (Any Time - Maximum Results)`
-  - `Past Hour`, `Past 4 Hours`, `Past 8 Hours`, `Past 12 Hours`
+  - `All`, `Past Hour`, `Past 4 Hours`, `Past 8 Hours`, `Past 12 Hours`
   - `Past 24 Hours`, `Past 48 Hours`, `Past 72 Hours`
   - `Past Week`, `Past Month`
 - **🏢 40+ Direct ATS Portals Supported**:
   - **Top Tier Tech ATS**: Greenhouse (`boards.greenhouse.io`), Lever (`jobs.lever.co`), Ashby (`jobs.ashbyhq.com`), Rippling, Dover
   - **Enterprise ATS**: Workday Jobs, SmartRecruiters, iCIMS, Oracle Cloud HCM, SAP SuccessFactors, Oracle Taleo, ADP Workforce, Dayforce, Paylocity, Avature, TriNet Hire
   - **Modern & Growth ATS**: Pinpoint, Workable, BreezyHR, Recruitee/Tellent, Teamtailor, Personio, Join.com, Factorial, Keka HR, Zoho Recruit, JazzHR, Jobvite, Gem, Trakstar, Homerun, Catsone, Gusto, Notion Job Pages
-  - **Startup Portals**: Wellfound (AngelList), Y Combinator (Work at a Startup), Built In, LinkedIn Direct Search Dork
+  - **Startup Portals**: Y Combinator (`ycombinator.com`), Wellfound (AngelList), Built In, LinkedIn Direct Search Dork
   - **Aggregated & Catch-All Dorks**: Direct `careers.*`, `jobs.*`, `people.*` & `talent.*` subdomains, and 15+ multi-ATS boolean dorks.
+- **🎨 Modern Dual Themes**:
+  - Light Ivory & Pine Green theme.
+  - Dark Slate & Amber Gold theme.
+  - Instant theme toggle persisted to `localStorage`.
 - **🛠️ Power Features**:
   - Real-time live query preview synthesizer.
-  - 1-click search opening & 1-click query/URL copying.
-  - Checklist tracking of applied/viewed platforms with `localStorage` persistence.
-  - Batch "Open Selected" and "Copy All URLs" to Markdown.
-  - Dark / Light mode toggle.
+  - 1-click search opening & 1-click query copying.
+  - Filter platforms dynamically by name in real time.
+  - Share search configuration links via URL parameters.
   - Zero ads, zero sponsored redirects, zero tracking cookies.
 
 ---
 
-## 🚀 Getting Started
+## 💻 Running Locally
 
 JobDork is a lightweight, zero-dependency static web application built with vanilla HTML5, CSS3, and JavaScript.
-
-### Running Locally
-
-You can run it with any static HTTP server:
 
 ```bash
 # Using Python
