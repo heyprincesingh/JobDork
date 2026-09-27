@@ -399,14 +399,14 @@ const PLATFORMS = [
   },
   {
     id: "workatastartup",
-    name: "Y Combinator (Work at a Startup)",
-    shortName: "YC Startup",
+    name: "Y Combinator",
+    shortName: "Y Combinator",
     category: "startups",
     badge: "Startup Portal",
     logoClass: "logo-yc",
     logoLetter: "Y",
-    dork: "site:workatastartup.com",
-    description: "Official job portal for YC portfolio companies across all batches."
+    dork: "site:ycombinator.com",
+    description: "Direct job opportunities, careers, and portfolio roles on Y Combinator."
   },
   {
     id: "builtin",
