@@ -756,11 +756,6 @@ const dom = {
   filterPlatformInput: document.getElementById("filterPlatformInput"),
   categoryTabs: document.getElementById("categoryTabs"),
   platformsContainer: document.getElementById("platformsContainer"),
-  selectAllBtn: document.getElementById("selectAllBtn"),
-  deselectAllBtn: document.getElementById("deselectAllBtn"),
-  openSelectedBtn: document.getElementById("openSelectedBtn"),
-  copyAllUrlsBtn: document.getElementById("copyAllUrlsBtn"),
-  openCount: document.getElementById("openCount"),
   themeToggleBtn: document.getElementById("themeToggleBtn"),
   sunIcon: document.getElementById("sunIcon"),
   moonIcon: document.getElementById("moonIcon"),
@@ -1221,49 +1216,6 @@ function bindEvents() {
     pill.classList.add("active");
     renderPlatformCards();
   });
-
-  // Batch Platform Controls (Advanced)
-  if (dom.selectAllBtn) {
-    dom.selectAllBtn.addEventListener("click", () => {
-      PLATFORMS.forEach(p => state.checkedPlatforms.add(p.id));
-      if (dom.openCount) dom.openCount.textContent = state.checkedPlatforms.size;
-      showToast(`Selected all ${PLATFORMS.length} platforms`);
-    });
-  }
-
-  if (dom.deselectAllBtn) {
-    dom.deselectAllBtn.addEventListener("click", () => {
-      state.checkedPlatforms.clear();
-      if (dom.openCount) dom.openCount.textContent = "0";
-      showToast("Cleared selections");
-    });
-  }
-
-  if (dom.openSelectedBtn) {
-    dom.openSelectedBtn.addEventListener("click", () => {
-      const selected = state.checkedPlatforms.size > 0 
-        ? PLATFORMS.filter(p => state.checkedPlatforms.has(p.id))
-        : PLATFORMS.slice(0, 6);
-
-      selected.forEach((platform, idx) => {
-        const query = getPlatformQuery(platform);
-        const url = buildSearchUrl(state.searchEngine, query, state.timePosted);
-        setTimeout(() => window.open(url, "_blank"), idx * 120);
-      });
-      showToast(`Opening ${selected.length} search tabs...`);
-    });
-  }
-
-  if (dom.copyAllUrlsBtn) {
-    dom.copyAllUrlsBtn.addEventListener("click", () => {
-      const list = PLATFORMS.map(p => {
-        const query = getPlatformQuery(p);
-        const url = buildSearchUrl(state.searchEngine, query, state.timePosted);
-        return `- **${p.name}**: ${url}`;
-      });
-      copyToClipboard(`# JobDork ATS URLs (${state.jobTitle})\n` + list.join("\n"), "All 43 ATS URLs copied to clipboard!");
-    });
-  }
 
   // Theme Toggle Button
   dom.themeToggleBtn.addEventListener("click", () => {

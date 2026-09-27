@@ -663,36 +663,6 @@ body {
   border-color: var(--brand-accent);
 }
 
-.batch-tools-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 0.9rem;
-  background: var(--bg-surface-alt);
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-}
-
-.batch-btns {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.btn-subtle-sm {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-field);
-  color: var(--text-main);
-  padding: 0.3rem 0.7rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.76rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-subtle-sm:hover {
-  border-color: var(--border-focus);
-}
-
 /* Panel Footer Action Bar */
 .panel-card-footer {
   display: flex;
