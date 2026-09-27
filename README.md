@@ -1,4 +1,4 @@
-# JobDork 🎯
+# JobDorked 🎯
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -10,7 +10,7 @@
 
 ## 🚀 One-Click Deploy to Vercel
 
-You can deploy JobDork instantly to Vercel with zero configuration:
+You can deploy JobDorked instantly to Vercel with zero configuration:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheyprincesingh%2FJobDork)
 
@@ -67,7 +67,7 @@ The included `vercel.json` and `package.json` will automatically configure:
 
 ## 💻 Running Locally
 
-JobDork is a lightweight, zero-dependency static web application built with vanilla HTML5, CSS3, and JavaScript.
+JobDorked is a lightweight, zero-dependency static web application built with vanilla HTML5, CSS3, and JavaScript.
 
 ```bash
 # Using Python

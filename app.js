@@ -1,5 +1,5 @@
 /**
- * JobDork - Precision ATS Job Search & Direct Queries
+ * JobDorked - Precision ATS Job Search & Direct Queries
  * Redesigned UI Controller & Query Engine
  */
 
@@ -964,7 +964,7 @@ function saveStateToStorage() {
     timePosted: state.timePosted,
     searchEngine: state.searchEngine,
   };
-  localStorage.setItem("jobdork_config", JSON.stringify(savedData));
+  localStorage.setItem("jobdorked_config", JSON.stringify(savedData));
 }
 
 function loadStateFromStorage() {
@@ -982,7 +982,7 @@ function loadStateFromStorage() {
   if (engine) state.searchEngine = engine;
 
   if (!job && !stack && !loc) {
-    const cached = localStorage.getItem("jobdork_config");
+    const cached = localStorage.getItem("jobdorked_config") || localStorage.getItem("jobdork_config");
     if (cached) {
       try {
         const parsed = JSON.parse(cached);
@@ -1231,7 +1231,7 @@ function bindEvents() {
       dom.sunIcon.classList.add("hidden");
     }
 
-    localStorage.setItem("jobdork_theme", nextTheme);
+    localStorage.setItem("jobdorked_theme", nextTheme);
   });
 
   // Share Search Config Button
@@ -1251,7 +1251,7 @@ function bindEvents() {
 
 // --- 9. App Initialization ---
 function init() {
-  const savedTheme = localStorage.getItem("jobdork_theme") || "light";
+  const savedTheme = localStorage.getItem("jobdorked_theme") || localStorage.getItem("jobdork_theme") || "light";
   document.body.setAttribute("data-theme", savedTheme);
   if (savedTheme === "light") {
     dom.sunIcon.classList.remove("hidden");
